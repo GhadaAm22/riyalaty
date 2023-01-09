@@ -13,6 +13,10 @@
 		4D7D04DC296BFBB500F01C31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D7D04DB296BFBB500F01C31 /* Preview Assets.xcassets */; };
 		4D7D04DE296BFBB500F01C31 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04DD296BFBB500F01C31 /* Persistence.swift */; };
 		4D7D04E1296BFBB500F01C31 /* riyalaty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04DF296BFBB500F01C31 /* riyalaty.xcdatamodeld */; };
+		4D7D04E8296C0D6700F01C31 /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04E7296C0D6700F01C31 /* DaysView.swift */; };
+		4D7D04EC296C0F0A00F01C31 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04EB296C0F0A00F01C31 /* Expense.swift */; };
+		4D7D04EF296C113600F01C31 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04EE296C113600F01C31 /* ExpenseViewModel.swift */; };
+		4D7D04F1296C939D00F01C31 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04F0296C939D00F01C31 /* MonthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		4D7D04DB296BFBB500F01C31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4D7D04DD296BFBB500F01C31 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4D7D04E0296BFBB500F01C31 /* riyalaty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = riyalaty.xcdatamodel; sourceTree = "<group>"; };
+		4D7D04E7296C0D6700F01C31 /* DaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysView.swift; sourceTree = "<group>"; };
+		4D7D04EB296C0F0A00F01C31 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		4D7D04EE296C113600F01C31 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
+		4D7D04F0296C939D00F01C31 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,9 @@
 		4D7D04D3296BFBB400F01C31 /* riyalaty */ = {
 			isa = PBXGroup;
 			children = (
+				4D7D04ED296C110200F01C31 /* ViewModel */,
+				4D7D04EA296C0E8500F01C31 /* View */,
+				4D7D04E9296C0E6500F01C31 /* Model */,
 				4D7D04D4296BFBB400F01C31 /* riyalatyApp.swift */,
 				4D7D04D6296BFBB400F01C31 /* ContentView.swift */,
 				4D7D04D8296BFBB500F01C31 /* Assets.xcassets */,
@@ -71,6 +82,31 @@
 				4D7D04DB296BFBB500F01C31 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4D7D04E9296C0E6500F01C31 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D7D04EB296C0F0A00F01C31 /* Expense.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4D7D04EA296C0E8500F01C31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4D7D04E7296C0D6700F01C31 /* DaysView.swift */,
+				4D7D04F0296C939D00F01C31 /* MonthView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4D7D04ED296C110200F01C31 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4D7D04EE296C113600F01C31 /* ExpenseViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +179,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7D04EC296C0F0A00F01C31 /* Expense.swift in Sources */,
+				4D7D04E8296C0D6700F01C31 /* DaysView.swift in Sources */,
 				4D7D04E1296BFBB500F01C31 /* riyalaty.xcdatamodeld in Sources */,
+				4D7D04F1296C939D00F01C31 /* MonthView.swift in Sources */,
+				4D7D04EF296C113600F01C31 /* ExpenseViewModel.swift in Sources */,
 				4D7D04DE296BFBB500F01C31 /* Persistence.swift in Sources */,
 				4D7D04D7296BFBB400F01C31 /* ContentView.swift in Sources */,
 				4D7D04D5296BFBB400F01C31 /* riyalatyApp.swift in Sources */,
