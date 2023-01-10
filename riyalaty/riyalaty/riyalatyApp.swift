@@ -13,7 +13,9 @@ struct riyalatyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            DaysView()
+            //testUIView()
+          DaysView()
+//                            .environment(\.managedObjectContext, persistenceController.container.viewContext)
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }

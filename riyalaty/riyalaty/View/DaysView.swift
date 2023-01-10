@@ -62,18 +62,89 @@ struct DaysView: View {
                     HeaderView()
                 }
             }
+            VStack{
+                Text("Total Expanse")
+                Text("500 SR")
+            }
+            .font(.title).bold()
+            VStack{
+                HStack{
+                    Text("Expenditure List :")
+                    Spacer()
+                }.font(.title2).bold()
+                    .foregroundColor(.white)
+                    .shadow(radius: 10)
+                    .padding(.leading)
+                    .padding(.top)
+                    .padding(.bottom , 5)
+                ScrollView{
+                    VStack(spacing: 20){
+                        ForEach(expenseModel.storedExpense, id: \.self){item in
+                            HStack{
+                                //storedExpense
+                                Spacer()
+                                Text(item.expenseCategory)
+                                Spacer()
+                                Text(String(format: "%.2f SR", item.expenseAmount))
+                                Spacer()
+                            }.font(.title3).bold()
+                                .foregroundColor(.black)
+                                .frame(width: 280, height: 30)
+                                .background(Color.white)
+                                .cornerRadius(20)
+                                .shadow(color:Color.white.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
+                        }
+                        
+                    }
+                }
+            }
+            .frame(width: 350, height: 230)
+            .background(Color.black)
+            .cornerRadius(20)
+            .shadow(color:Color.black.opacity(0.3) ,radius: 20 , x: 0.0 , y: 10)
+            .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
+            VStack{
+                HStack{
+                    Text("Expenses  Chart :")
+                }.font(.title2).bold()
+                    .foregroundColor(.white)
+                    .shadow(radius: 10)
+                    .padding(.leading)
+                    .padding(.top)
+                    .padding(.bottom , 10)
+            }
+            .frame(width: 350, height: 230)
+            .background(Color.black)
+            .cornerRadius(20)
+            .shadow(color:Color.black.opacity(0.3) ,radius: 20 , x: 0.0 , y: 10)
+            .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
+            .padding(.top)
+            NavigationLink {
+                testUIView()
+            } label: {
+                Label("View Monthly Report", systemImage: "folder")
+                    .frame(width: 200, height: 30)
+                    .foregroundColor(.white)
+                    .background(Color.black)
+                    .cornerRadius(20)
+                    .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
+                    .padding(.trailing, -100)
+            }
+        
         }
     }
     // Header
     func HeaderView()->some View{
-        HStack(spacing: 10){
-            VStack(alignment: .leading, spacing: 10){
-                Text(Date().formatted(date: .abbreviated, time: .omitted))
-                    .foregroundColor(.gray)
-                Text("Today")
-                    .font(.largeTitle.bold())
+        HStack(spacing: 0){
+            VStack(alignment: .leading, spacing: 0){
+//                Text(Date().formatted(date: .abbreviated, time: .omitted))
+//                    .foregroundColor(.gray)
+                Text("Navigation place")
+                    .font(.title2.bold())
             }
             .hLeading()
+            .padding(.top,-30)
+            .padding(.bottom, -40)
 //            Button{
 //
 //            } label: {

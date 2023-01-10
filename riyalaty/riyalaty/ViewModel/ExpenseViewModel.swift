@@ -25,14 +25,17 @@ class ExpenseViewModel: ObservableObject{
     // intializing
     init(){
         fetchCurrenWeek()
-        fetchCurrenMonth()
+      //  fetchCurrenMonth()
     }
     func fetchCurrenWeek(){
         let today = Date()
         let calendar = Calendar.current
         
         let week = calendar.dateInterval(of: .weekOfMonth, for: today)
-        
+//        let mo = calendar.dateInterval(of: .month, for: today)
+//        guard let firstMonthDay = week?.start else{
+//            return
+//        }
         guard let firstWeekDay = week?.start else{
             return
         }
@@ -59,50 +62,68 @@ class ExpenseViewModel: ObservableObject{
     
     
     //current Months
+ 
     @Published var curreMonths: [Date] = []
 
-    // current day
+    // current dany
     @Published var currentMonth: Date = Date()
-
-    // intializing
-//    init(){
-//        fetchCurrenWeek()
+//
+//    // intializing
+////    init(){
+////        fetchCurrenWeek()
+////    }
+//    func fetchCurrenMonth(){
+//        let thisMonth = Date()
+//        let calendar = Calendar.current
+//
+//        let month = calendar.dateInterval(of: .month, for: thisMonth)
+//        let currentDate = calendar.component(.day)
+//        var valueToReduce = -1
+//               if currentDate > 15 {
+//                   valueToReduce = -2
+//               }
+//        guard let firstMonthDay = month?.start else{
+//            return
+//        }
+//        (1...7).forEach{ month in
+//            if let months = calendar.date(byAdding: .month ,value: valueToReduce, to: self){
+//                curreMonths.append(months)
+//            }
+//        }
 //    }
-    func fetchCurrenMonth(){
-        let thisMonth = Date()
-        let calendar = Calendar.current
-        
-        let month = calendar.dateInterval(of: .month, for: thisMonth)
-        let currentDate = calendar.component(.day)
-        var valueToReduce = -1
-               if currentDate > 15 {
-                   valueToReduce = -2
-               }
-        guard let firstMonthDay = month?.start else{
-            return
-        }
-        (1...7).forEach{ month in
-            if let months = calendar.date(byAdding: .month ,value: valueToReduce, to: self){
-                curreMonths.append(months)
-            }
-        }
-    }
-    // Extraction date
-    func extractMonth(date: Date, format: String)->String{
-        let formatter = DateFormatter()
-        formatter.dateFormat = format
-        
-        return formatter.string(from: date)
-    }
-    // checking if current Date is today
-    func isThisMonth(date: Date)->Bool{
-        let calender = Calendar.current
-        
-        return calender.isDate(currentMonth, inSameDayAs: date)
-    }
+//    // Extraction date
+//    func extractMonth(date: Date, format: String)->String{
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = format
+//
+//        return formatter.string(from: date)
+//    }
+//    // checking if current Date is today
+//    func isThisMonth(date: Date)->Bool{
+//        let calender = Calendar.current
+//
+//        return calender.isDate(currentMonth, inSameDayAs: date)
+//    }
     
-
-
+    
 }
+//let date = Date()
+//let dateFormatter = DateFormatter()
+//dateFormatter.dateFormat = "llll"
+//let monthString = dateFormatter.string(from: date)
+//extension Date {
+//    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+//        return calendar.dateComponents(Set(components), from: self)
+//    }
+//
+//    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+//        return calendar.component(component, from: self)
+//    }
+//}
+//let date = Date()
+//let calendar = Calendar.current
+//let components = calendar.dateComponents([.month], from: date)
+//let month = components.month
+
 
 

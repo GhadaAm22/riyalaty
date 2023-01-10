@@ -9,7 +9,7 @@ import Foundation
 
 // Expense Model
 
-struct Expense: Identifiable{
+struct Expense: Identifiable,Hashable{
     var id = UUID().uuidString
     var expenseCategory: String
     var expenseAmount: Float
