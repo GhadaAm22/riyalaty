@@ -130,10 +130,7 @@ struct DaysView: View {
                     .padding(.bottom , 2)
                 ScrollView{
                     LazyVStack{
-        
                         PieChartSimple()
-                           
-                            
                     }}
             }
             .frame(width: 350, height: 230)

@@ -1,6 +1,7 @@
 import UIKit
 import SwiftUI
 
+
 var greeting = "Hello, playground"
 print(greeting)
 
@@ -51,3 +52,12 @@ let expectedFormat = Date.FormatStyle()
     .hour().minute()
 //let date = try? Date(string, strategy: expectedFormat)
 
+
+
+var user = "12.50"
+
+if let floatValue = Float(user) {
+    print("Float value = \(floatValue)")
+} else {
+    print("String does not contain Float")
+}
