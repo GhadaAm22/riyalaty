@@ -112,52 +112,52 @@ struct DaysView: View {
                             expenseModel.filterTodayExpenses()
                         }
                     }
-                    // updating Expenses ******** there is current month
-                    .onChange(of: expenseModel.currentDay){ newValue in
-                        expenseModel.filterTodayExpenses()
-                    }
+                    .padding(.bottom)
                 }
-                .padding(.bottom)
-            }
-            .frame(width: 350, height: 230)
-            .background(Color.black)
-            .cornerRadius(20)
-            .shadow(color:Color.black.opacity(0.3) ,radius: 20 , x: 0.0 , y: 10)
-            .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
-
-            VStack{
-                HStack{
-                    Text("Expenses  Chart :")
-                        .padding(.leading)
-                    Spacer()
-                }.font(.title2).bold()
-                    .foregroundColor(.white)
-                    .frame(width: 350, height: 40)
-                    .background(Color.black)
-                    .cornerRadius(2)
-                    .shadow(color:Color.white ,radius: 2 , x: 0.0 , y: 1)
-                    .padding(.bottom , 2)
-                ScrollView{
-                    LazyVStack{
-                        PieChartSimple()
-                    }}
-            }
-            .frame(width: 350, height: 230)
-            .background(Color.black)
-            .cornerRadius(20)
-            .shadow(color:Color.black.opacity(0.3) ,radius: 20 , x: 0.0 , y: 10)
-            .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
-            .padding(.top)
-            NavigationLink {
-                testUIView()
-            } label: {
-                Label("View Monthly Report", systemImage: "folder")
-                    .frame(width: 200, height: 30)
-                    .foregroundColor(.white)
-                    .background(Color.black)
-                    .cornerRadius(20)
-                    .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
-                    .padding(.trailing, -100)
+                .frame(width: 350, height: 230)
+                .background(Color.black)
+                .cornerRadius(20)
+                .shadow(color:Color.black.opacity(0.3) ,radius: 20 , x: 0.0 , y: 10)
+                .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
+                
+                VStack{
+                    HStack{
+                        Text("Expenses  Chart :")
+                            .padding(.leading)
+                        Spacer()
+                    }.font(.title2).bold()
+                        .foregroundColor(.white)
+                        .frame(width: 350, height: 40)
+                        .background(Color.black)
+                        .cornerRadius(2)
+                        .shadow(color:Color.white ,radius: 2 , x: 0.0 , y: 1)
+                        .padding(.bottom , 2)
+                    ScrollView{
+                        LazyVStack{
+                            
+                            PieChartSimple()
+                            
+                            
+                        }}
+                }
+                .frame(width: 350, height: 230)
+                .background(Color.black)
+                .cornerRadius(20)
+                .shadow(color:Color.black.opacity(0.3) ,radius: 20 , x: 0.0 , y: 10)
+                .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
+                .padding(.top)
+                NavigationLink {
+                    testUIView()
+                } label: {
+                    Label("View Monthly Report", systemImage: "folder")
+                        .frame(width: 200, height: 30)
+                        .foregroundColor(.white)
+                        .background(Color.black)
+                        .cornerRadius(20)
+                        .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
+                        .padding(.trailing, -100)
+                }
+                
             }
             .navigationTitle("My Expenses")
             .navigationBarTitleDisplayMode(.inline)

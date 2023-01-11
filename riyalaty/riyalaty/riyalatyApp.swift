@@ -16,7 +16,7 @@ struct riyalatyApp: App {
         WindowGroup {
             //testUIView()
 //            FirstPge().environment(\.managedObjectContext, persistentContainer.viewContext)
-          DaysView()
+     DaysView()
 //                            .environment(\.managedObjectContext, persistenceController.container.viewContext)
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
