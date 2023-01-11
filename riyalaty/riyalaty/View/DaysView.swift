@@ -119,12 +119,22 @@ struct DaysView: View {
             VStack{
                 HStack{
                     Text("Expenses  Chart :")
+                        .padding(.leading)
+                    Spacer()
                 }.font(.title2).bold()
                     .foregroundColor(.white)
-                    .shadow(radius: 10)
-                    .padding(.leading)
-                    .padding(.top)
-                    .padding(.bottom , 10)
+                    .frame(width: 350, height: 40)
+                    .background(Color.black)
+                    .cornerRadius(2)
+                    .shadow(color:Color.white ,radius: 2 , x: 0.0 , y: 1)
+                    .padding(.bottom , 2)
+                ScrollView{
+                    LazyVStack{
+        
+                        PieChartSimple()
+                           
+                            
+                    }}
             }
             .frame(width: 350, height: 230)
             .background(Color.black)

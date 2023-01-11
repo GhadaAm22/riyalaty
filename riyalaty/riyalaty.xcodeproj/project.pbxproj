@@ -18,6 +18,10 @@
 		4D7D04EF296C113600F01C31 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04EE296C113600F01C31 /* ExpenseViewModel.swift */; };
 		4D7D04F1296C939D00F01C31 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04F0296C939D00F01C31 /* MonthView.swift */; };
 		4D7D04F4296D743400F01C31 /* testUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04F3296D743400F01C31 /* testUIView.swift */; };
+		4D7D04F6296EA1B700F01C31 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04F5296EA1B700F01C31 /* Chart.swift */; };
+		4D7D04F8296EA2A000F01C31 /* ChartDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04F7296EA2A000F01C31 /* ChartDataContainer.swift */; };
+		4D7D04FA296EA30300F01C31 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04F9296EA30300F01C31 /* PieChart.swift */; };
+		4D7D04FC296EA4AF00F01C31 /* PieChartSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04FB296EA4AF00F01C31 /* PieChartSimple.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		4D7D04F0296C939D00F01C31 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 		4D7D04F2296D3F5000F01C31 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4D7D04F3296D743400F01C31 /* testUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testUIView.swift; sourceTree = "<group>"; };
+		4D7D04F5296EA1B700F01C31 /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		4D7D04F7296EA2A000F01C31 /* ChartDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataContainer.swift; sourceTree = "<group>"; };
+		4D7D04F9296EA30300F01C31 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
+		4D7D04FB296EA4AF00F01C31 /* PieChartSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartSimple.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				4D7D04EB296C0F0A00F01C31 /* Expense.swift */,
+				4D7D04F5296EA1B700F01C31 /* Chart.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -101,6 +110,8 @@
 				4D7D04E7296C0D6700F01C31 /* DaysView.swift */,
 				4D7D04F0296C939D00F01C31 /* MonthView.swift */,
 				4D7D04F3296D743400F01C31 /* testUIView.swift */,
+				4D7D04F9296EA30300F01C31 /* PieChart.swift */,
+				4D7D04FB296EA4AF00F01C31 /* PieChartSimple.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,6 +121,7 @@
 			children = (
 				4D7D04EE296C113600F01C31 /* ExpenseViewModel.swift */,
 				4D7D04F2296D3F5000F01C31 /* MyPlayground.playground */,
+				4D7D04F7296EA2A000F01C31 /* ChartDataContainer.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -184,13 +196,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7D04F8296EA2A000F01C31 /* ChartDataContainer.swift in Sources */,
+				4D7D04F6296EA1B700F01C31 /* Chart.swift in Sources */,
 				4D7D04EC296C0F0A00F01C31 /* Expense.swift in Sources */,
 				4D7D04E8296C0D6700F01C31 /* DaysView.swift in Sources */,
 				4D7D04E1296BFBB500F01C31 /* riyalaty.xcdatamodeld in Sources */,
 				4D7D04F1296C939D00F01C31 /* MonthView.swift in Sources */,
+				4D7D04FC296EA4AF00F01C31 /* PieChartSimple.swift in Sources */,
 				4D7D04EF296C113600F01C31 /* ExpenseViewModel.swift in Sources */,
 				4D7D04DE296BFBB500F01C31 /* Persistence.swift in Sources */,
 				4D7D04D7296BFBB400F01C31 /* ContentView.swift in Sources */,
+				4D7D04FA296EA30300F01C31 /* PieChart.swift in Sources */,
 				4D7D04F4296D743400F01C31 /* testUIView.swift in Sources */,
 				4D7D04D5296BFBB400F01C31 /* riyalatyApp.swift in Sources */,
 			);
