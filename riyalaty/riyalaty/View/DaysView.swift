@@ -68,7 +68,8 @@ struct DaysView: View {
                 }
                 VStack{
                     Text("Total Expanse")
-                    Text("500 SR")
+                    //Text("500 SR")
+                    SomeView()
                 }
                 .font(.title).bold()
                 //testing
@@ -179,6 +180,39 @@ struct DaysView: View {
         }
     }
     // Header
+    func colculateTotal(expenses: [Expense])->Float{
+        var total : Float = 0
+       
+        for expense in expenses {
+            print("colculateTotal\(expense.expenseAmount)")
+            total += expense.expenseAmount
+            print("Total  \(total)")
+        }
+        return total
+    }
+     func SomeView()->some View{
+       
+        VStack{
+            if let expenses = expenseModel.filterExpenses{
+                if expenses.isEmpty{
+                    Text(String(format: "%.2f SR", 0))
+                }
+                else{
+                    
+                    Text(String(format: "%.2f SR", colculateTotal(expenses: expenses)))
+                }
+            }
+            else{
+                // progress View
+                ProgressView()
+                    .offset(y: 100)
+            }
+        }
+        // updating Expenses ******** there is current month
+        .onChange(of: expenseModel.currentDay){ newValue in
+            expenseModel.filterTodayExpenses()
+        }
+    }
     func ExpenseCardView(expense: Expense)->some View{
         HStack{
             Text(expense.expenseCategory)
