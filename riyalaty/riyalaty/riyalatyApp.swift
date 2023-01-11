@@ -9,11 +9,13 @@ import SwiftUI
 
 @main
 struct riyalatyApp: App {
-    let persistenceController = PersistenceController.shared
+//    let persistenceController = PersistenceController.shared
+    let persistentContainer = CoreDataManeger.shared.persistentContainer
 
     var body: some Scene {
         WindowGroup {
             //testUIView()
+//            FirstPge().environment(\.managedObjectContext, persistentContainer.viewContext)
           DaysView()
 //                            .environment(\.managedObjectContext, persistenceController.container.viewContext)
 //            ContentView()
