@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4D7D04D5296BFBB400F01C31 /* riyalatyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04D4296BFBB400F01C31 /* riyalatyApp.swift */; };
 		4D7D04D7296BFBB400F01C31 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04D6296BFBB400F01C31 /* ContentView.swift */; };
-		4D7D04D9296BFBB500F01C31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D7D04D8296BFBB500F01C31 /* Assets.xcassets */; };
 		4D7D04DC296BFBB500F01C31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D7D04DB296BFBB500F01C31 /* Preview Assets.xcassets */; };
 		4D7D04DE296BFBB500F01C31 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04DD296BFBB500F01C31 /* Persistence.swift */; };
 		4D7D04E1296BFBB500F01C31 /* riyalaty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04DF296BFBB500F01C31 /* riyalaty.xcdatamodeld */; };
@@ -22,13 +21,16 @@
 		4D7D04F8296EA2A000F01C31 /* ChartDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04F7296EA2A000F01C31 /* ChartDataContainer.swift */; };
 		4D7D04FA296EA30300F01C31 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04F9296EA30300F01C31 /* PieChart.swift */; };
 		4D7D04FC296EA4AF00F01C31 /* PieChartSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04FB296EA4AF00F01C31 /* PieChartSimple.swift */; };
+		69A190DE296ECDAC008A5C87 /* FirstPge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A190DD296ECDAC008A5C87 /* FirstPge.swift */; };
+		69A190E1296ECE81008A5C87 /* CoreDataManeger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A190E0296ECE81008A5C87 /* CoreDataManeger.swift */; };
+		69A190E7296ED7FB008A5C87 /* AddExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A190E6296ED7FB008A5C87 /* AddExpense.swift */; };
+		69A190E9296EDC66008A5C87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69A190E8296EDC66008A5C87 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4D7D04D1296BFBB400F01C31 /* riyalaty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = riyalaty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7D04D4296BFBB400F01C31 /* riyalatyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riyalatyApp.swift; sourceTree = "<group>"; };
 		4D7D04D6296BFBB400F01C31 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		4D7D04D8296BFBB500F01C31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D7D04DB296BFBB500F01C31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4D7D04DD296BFBB500F01C31 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4D7D04E0296BFBB500F01C31 /* riyalaty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = riyalaty.xcdatamodel; sourceTree = "<group>"; };
@@ -42,6 +44,10 @@
 		4D7D04F7296EA2A000F01C31 /* ChartDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataContainer.swift; sourceTree = "<group>"; };
 		4D7D04F9296EA30300F01C31 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		4D7D04FB296EA4AF00F01C31 /* PieChartSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartSimple.swift; sourceTree = "<group>"; };
+		69A190DD296ECDAC008A5C87 /* FirstPge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPge.swift; sourceTree = "<group>"; };
+		69A190E0296ECE81008A5C87 /* CoreDataManeger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManeger.swift; sourceTree = "<group>"; };
+		69A190E6296ED7FB008A5C87 /* AddExpense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddExpense.swift; path = "../../../../نسخة من ToDoList/Views/AddExpense.swift"; sourceTree = "<group>"; };
+		69A190E8296EDC66008A5C87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../نسخة من ToDoList/ToDoList/Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +85,7 @@
 				4D7D04E9296C0E6500F01C31 /* Model */,
 				4D7D04D4296BFBB400F01C31 /* riyalatyApp.swift */,
 				4D7D04D6296BFBB400F01C31 /* ContentView.swift */,
-				4D7D04D8296BFBB500F01C31 /* Assets.xcassets */,
+				69A190E8296EDC66008A5C87 /* Assets.xcassets */,
 				4D7D04DD296BFBB500F01C31 /* Persistence.swift */,
 				4D7D04DF296BFBB500F01C31 /* riyalaty.xcdatamodeld */,
 				4D7D04DA296BFBB500F01C31 /* Preview Content */,
@@ -108,10 +114,13 @@
 			isa = PBXGroup;
 			children = (
 				4D7D04E7296C0D6700F01C31 /* DaysView.swift */,
+				69A190E6296ED7FB008A5C87 /* AddExpense.swift */,
 				4D7D04F0296C939D00F01C31 /* MonthView.swift */,
 				4D7D04F3296D743400F01C31 /* testUIView.swift */,
 				4D7D04F9296EA30300F01C31 /* PieChart.swift */,
 				4D7D04FB296EA4AF00F01C31 /* PieChartSimple.swift */,
+				69A190DD296ECDAC008A5C87 /* FirstPge.swift */,
+				69A190DF296ECDC7008A5C87 /* Manegers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,6 +133,14 @@
 				4D7D04F7296EA2A000F01C31 /* ChartDataContainer.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		69A190DF296ECDC7008A5C87 /* Manegers */ = {
+			isa = PBXGroup;
+			children = (
+				69A190E0296ECE81008A5C87 /* CoreDataManeger.swift */,
+			);
+			path = Manegers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D7D04DC296BFBB500F01C31 /* Preview Assets.xcassets in Resources */,
-				4D7D04D9296BFBB500F01C31 /* Assets.xcassets in Resources */,
+				69A190E9296EDC66008A5C87 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D7D04F8296EA2A000F01C31 /* ChartDataContainer.swift in Sources */,
+				69A190DE296ECDAC008A5C87 /* FirstPge.swift in Sources */,
 				4D7D04F6296EA1B700F01C31 /* Chart.swift in Sources */,
 				4D7D04EC296C0F0A00F01C31 /* Expense.swift in Sources */,
 				4D7D04E8296C0D6700F01C31 /* DaysView.swift in Sources */,
@@ -204,8 +222,10 @@
 				4D7D04F1296C939D00F01C31 /* MonthView.swift in Sources */,
 				4D7D04FC296EA4AF00F01C31 /* PieChartSimple.swift in Sources */,
 				4D7D04EF296C113600F01C31 /* ExpenseViewModel.swift in Sources */,
+				69A190E1296ECE81008A5C87 /* CoreDataManeger.swift in Sources */,
 				4D7D04DE296BFBB500F01C31 /* Persistence.swift in Sources */,
 				4D7D04D7296BFBB400F01C31 /* ContentView.swift in Sources */,
+				69A190E7296ED7FB008A5C87 /* AddExpense.swift in Sources */,
 				4D7D04FA296EA30300F01C31 /* PieChart.swift in Sources */,
 				4D7D04F4296D743400F01C31 /* testUIView.swift in Sources */,
 				4D7D04D5296BFBB400F01C31 /* riyalatyApp.swift in Sources */,
