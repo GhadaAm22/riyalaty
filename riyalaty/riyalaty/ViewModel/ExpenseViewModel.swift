@@ -13,6 +13,9 @@ class ExpenseViewModel: ObservableObject{
     @Published var storedExpense: [Expense] = [
         Expense(expenseCategory: "􀸩 Resturent" ,expenseAmount: 180 ,expenseDate: .init(timeIntervalSince1970: 1673256338)),
         Expense(expenseCategory: "􀙘 Transportion" ,expenseAmount: 290 ,expenseDate: .init(timeIntervalSince1970: 1673256338)),
+        Expense(expenseCategory: "􀸘 Coffee" ,expenseAmount: 30 ,expenseDate: .init(timeIntervalSince1970: 1673256338)),
+        Expense(expenseCategory: "􀸩 Resturent" ,expenseAmount: 180 ,expenseDate: .init(timeIntervalSince1970: 1673256338)),
+        Expense(expenseCategory: "􀙘 Transportion" ,expenseAmount: 290 ,expenseDate: .init(timeIntervalSince1970: 1673256338)),
         Expense(expenseCategory: "􀸘 Coffee" ,expenseAmount: 30 ,expenseDate: .init(timeIntervalSince1970: 1673256338))
     ]
     
@@ -22,10 +25,30 @@ class ExpenseViewModel: ObservableObject{
     // current day
     @Published var currentDay: Date = Date()
     
+    // filtering today tassks
+    @Published var filterExpenses: [Expense]?
+    
     // intializing
     init(){
         fetchCurrenWeek()
+        filterTodayExpenses()
       //  fetchCurrenMonth()
+    }
+    // filter today Expense
+    func filterTodayExpenses(){
+        DispatchQueue.global(qos: .userInteractive).async{
+            let calendar = Calendar.current
+            
+            let filtered = self.storedExpense.filter{
+                return calendar.isDate($0.expenseDate, inSameDayAs: self.currentDay)
+            }
+            
+            DispatchQueue.main.async {
+                withAnimation{
+                    self.filterExpenses = filtered
+                }
+            }
+        }
     }
     func fetchCurrenWeek(){
         let today = Date()

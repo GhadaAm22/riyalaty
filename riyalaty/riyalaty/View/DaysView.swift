@@ -67,42 +67,55 @@ struct DaysView: View {
                 Text("500 SR")
             }
             .font(.title).bold()
+            //testing
             VStack{
                 HStack{
                     Text("Expenditure List :")
+                        .padding(.leading)
                     Spacer()
                 }.font(.title2).bold()
                     .foregroundColor(.white)
-                    .shadow(radius: 10)
-                    .padding(.leading)
-                    .padding(.top)
-                    .padding(.bottom , 5)
+                    .frame(width: 350, height: 40)
+                    .background(Color.black)
+                    .cornerRadius(2)
+                    .shadow(color:Color.white ,radius: 2 , x: 0.0 , y: 1)
+                    .padding(.bottom , 2)
                 ScrollView{
-                    VStack(spacing: 20){
-                        ForEach(expenseModel.storedExpense, id: \.self){item in
-                            HStack{
-                                //storedExpense
-                                Spacer()
-                                Text(item.expenseCategory)
-                                Spacer()
-                                Text(String(format: "%.2f SR", item.expenseAmount))
-                                Spacer()
-                            }.font(.title3).bold()
-                                .foregroundColor(.black)
-                                .frame(width: 280, height: 30)
-                                .background(Color.white)
-                                .cornerRadius(20)
-                                .shadow(color:Color.white.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
+                    LazyVStack(spacing: 20){
+                        if let expenses = expenseModel.filterExpenses{
+                            if expenses.isEmpty{
+                                Text("No expences done yet!!!")
+                                .foregroundColor(.white)
+                                .font(.system(size: 16))
+                                .fontWeight(.light)
+                                .offset(y:100)
+                                .padding(.top,-30)
+                            }
+                            else{
+                                ForEach(expenses) { expense in
+                                    ExpenseCardView(expense: expense)
+                                }
+                            }
                         }
-                        
+                        else{
+                            // progress View
+                            ProgressView()
+                                .offset(y: 100)
+                        }
+                    }
+                    // updating Expenses ******** there is current month
+                    .onChange(of: expenseModel.currentDay){ newValue in
+                        expenseModel.filterTodayExpenses()
                     }
                 }
+                .padding(.bottom)
             }
             .frame(width: 350, height: 230)
             .background(Color.black)
             .cornerRadius(20)
             .shadow(color:Color.black.opacity(0.3) ,radius: 20 , x: 0.0 , y: 10)
             .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
+
             VStack{
                 HStack{
                     Text("Expenses  Chart :")
@@ -134,6 +147,20 @@ struct DaysView: View {
         }
     }
     // Header
+    func ExpenseCardView(expense: Expense)->some View{
+        HStack{
+            Text(expense.expenseCategory)
+            Spacer()
+            Text(String(format: "%.2f SR", expense.expenseAmount))
+        }
+        .padding()
+        .font(.title3).bold()
+        .foregroundColor(.black)
+        .frame(width: 300, height: 30)
+        .background(Color.white)
+        .cornerRadius(5)
+        .shadow(color:Color.white.opacity(0.1) ,radius: 2 , x: 0.0 , y: 1)
+    }
     func HeaderView()->some View{
         HStack(spacing: 0){
             VStack(alignment: .leading, spacing: 0){
@@ -177,3 +204,50 @@ extension View{
             .frame(maxWidth: .infinity,alignment: .center)
     }
 }
+
+
+
+// the expenditure list befor
+//VStack{
+//    HStack{
+//        Text("Expenditure List :")
+//            .padding(.leading)
+//        Spacer()
+//    }.font(.title2).bold()
+//        .foregroundColor(.white)
+//        .frame(width: 350, height: 40)
+//        .background(Color.black)
+//        .cornerRadius(2)
+//        .shadow(color:Color.white ,radius: 2 , x: 0.0 , y: 1)
+//        //.shadow(radius: 10)
+////                    .padding(.leading)
+////                    .padding(.top)
+//        .padding(.bottom , 2)
+//    ScrollView{
+//        LazyVStack(spacing: 20){
+//            ForEach(expenseModel.storedExpense, id: \.self){item in
+//                HStack{
+//
+//                    Text(item.expenseCategory)
+//                    Spacer()
+//                    Text(String(format: "%.2f SR", item.expenseAmount))
+//
+//                }
+//                    .padding()
+//                    .font(.title3).bold()
+//                    .foregroundColor(.black)
+//                    .frame(width: 300, height: 30)
+//                    .background(Color.white)
+//                    .cornerRadius(5)
+//                    .shadow(color:Color.white.opacity(0.1) ,radius: 2 , x: 0.0 , y: 1)
+//            }
+//
+//        }
+//    }
+//    .padding(.bottom)
+//}
+//.frame(width: 350, height: 230)
+//.background(Color.black)
+//.cornerRadius(20)
+//.shadow(color:Color.black.opacity(0.3) ,radius: 20 , x: 0.0 , y: 10)
+//.shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
