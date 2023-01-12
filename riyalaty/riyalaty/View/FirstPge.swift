@@ -89,9 +89,15 @@ struct FirstPge: View {
                         Spacer()
                         
                         Text(task.title ?? "")
-                    }
+                    }.padding()
+                        .font(.title3).bold()
+                        .foregroundColor(.black)
+                        .frame(width: 300, height: 30)
+                        .background(Color.white)
+                        .cornerRadius(5)
+                        .shadow(color:Color.white.opacity(0.2) ,radius: 2 , x: 0.0 , y: 1)
                 }.onDelete(perform: deleteTask)
-                
+            
             }.listStyle(.sidebar)
                 .foregroundColor(Color("DBlue"))
                 .navigationTitle("My Expenses")

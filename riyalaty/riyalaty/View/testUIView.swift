@@ -65,7 +65,7 @@ struct testUIView: View {
                         .padding(.horizontal)
                     }
                 } header: {
-                    HeaderView()
+                  //  HeaderView()
                 }
             }
             VStack{
@@ -73,6 +73,32 @@ struct testUIView: View {
                 Text("500 SR")
             }
             .font(.title).bold()
+            VStack{
+                HStack{
+                    Text("Expenses  Chart :")
+                        .padding(.leading)
+                    Spacer()
+                }.font(.title2).bold()
+                    .foregroundColor(.black)
+                    .frame(width: 350, height: 40)
+                    .background(Color.white)
+                    .cornerRadius(2)
+                    .shadow(color:Color.black ,radius: 3 , x: 0.0 , y: 1.5)
+                    .padding(.bottom , 2)
+                ScrollView{
+                    LazyVStack{
+                        
+                        PieChartSimple()
+                        
+                        
+                    }}
+            }
+            .frame(width: 350, height: 230)
+            .background(Color.white)
+            .cornerRadius(20)
+            .shadow(color:Color.black.opacity(0.3) ,radius: 20 , x: 0.0 , y: 10)
+            .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
+            .padding(.top)
             //        HStack(spacing: 10){
             //            ForEach(Months, id: \.self){month in
             //                HStack{

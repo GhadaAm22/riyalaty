@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  riyalaty
+
+  Created by Sara Khalid BIN kuddah on 19/06/1444 AH.
+  
+*/
+
+"Edit" = "تعديل";
+"Add" = "إضافة";
+"Save" = "حفظ";
+"Close" = "اغلاق";
+"My Expenses" = "مصاريفي";
+"Total Expense" = "مجموع المصاريف";
+"Add Expenses" = "إضافة مصاريف ";
+"Transportation" = "المواصلات";
+"Home" ="المنرل";
+"Health & Care" = "الصحة والعناية";
+"Entertainment" = "الترفيه";
+"Groceries" = "التموينات الغذائية";
+"Shopping" = "التسوق";
+"Coffee" = "القهوة";
+"Bill" = "الفواتير";
+"Other" = "أخرى";
+"Price" = "السعر";
+"Categories" = "الأصناف";
+"Done" = "تم";
+"Total Expense"="مجموع المصروفات";
+"Expenditure List:" = ":قائمة المصروفات ";
+"Expenses  Chart:" = "مخطط المصروفات:";
+
+

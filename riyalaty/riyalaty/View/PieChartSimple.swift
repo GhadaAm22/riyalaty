@@ -30,8 +30,8 @@ struct PieChartSimple : View {
                 VStack{
                 ForEach(0..<charDataObj.chartData.count) { index in
                     HStack {
-                        Text(String(format: "%.2f", Double(charDataObj.chartData[index].percent))+"%")
-                            .foregroundColor(.white)
+                        Text(String(format: "%.2f", Double(charDataObj.chartData[index].percent))+"%").minimumScaleFactor(0.8).lineLimit(1)
+                            .foregroundColor(.black)
                             .onTapGesture {
                                 indexOfTappedSlice = indexOfTappedSlice == index ? -1 : index
                             }

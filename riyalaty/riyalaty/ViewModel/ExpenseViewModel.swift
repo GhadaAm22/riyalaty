@@ -8,6 +8,77 @@
 import SwiftUI
 
 class ExpenseViewModel: ObservableObject{
+    //for update cordata
+    @State var showSheetView = false
+
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(key: "dateCreated", ascending: false)])
+    private var allTasks: FetchedResults<Task>
+    private func SysImage(_ value: String) -> Image{
+        let priority = Priority(rawValue: value)
+        
+        switch priority {
+        case .Transportation:
+            return Image(systemName: "car")
+        case .Home:
+            return Image(systemName: "house")
+        case .Bill:
+            return Image(systemName: "list.bullet.rectangle.portrait")
+        case .Entertainment:
+            return Image(systemName: "gamecontroller")
+        case .HealthCare:
+            return Image(systemName: "cross.circle")
+        case .Groceries:
+            return Image(systemName: "cart")
+        case .Shopping:
+            return Image(systemName: "bag")
+        case .Coffee:
+            return Image(systemName: "cup.and.saucer")
+        default:
+            return Image(systemName: "plus")
+        }
+    }
+    private func styleForPriority(_ value: String) -> String{
+        let priority = Priority(rawValue: value)
+        
+        switch priority {
+        case .Transportation:
+            return "Transportation"
+        case .Entertainment:
+            return "Entertainment"
+        case .HealthCare:
+            return "Health & Care"
+        case .Groceries:
+            return "Groceries"
+        case .Shopping:
+            return "Shopping"
+        case .Coffee:
+            return "Coffee"
+        case .Home:
+            return "Home"
+        case .Bill:
+            return "Bill"
+        default:
+            return "Other"
+        }
+    }
+    private func deleteTask(at offsets: IndexSet){
+        offsets.forEach { index in
+            let task = allTasks[index]
+            viewContext.delete(task)
+            
+            do {
+                try viewContext.save()
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+
+
+    //=========================
     //1673169938
     // Sample expense
     @Published var storedExpense: [Expense] = [
@@ -27,12 +98,35 @@ class ExpenseViewModel: ObservableObject{
     
     // filtering today tassks
     @Published var filterExpenses: [Expense]?
+    @Published var filterTasks: [Task]?
     
     // intializing
     init(){
         fetchCurrenWeek()
         filterTodayExpenses()
+       // filterTodayTasks()
       //  fetchCurrenMonth()
+        print("dateCreated:    :> ")
+       
+
+    }
+    //fllter today expense up call task TT
+    func filterTodayTasks(){
+        DispatchQueue.global(qos: .userInteractive).async{
+            let calendar = Calendar.current
+            
+//            let filtered = self.allTasks.filter{
+//              //  return calendar.isDate($0.dateCreated ?? $01673256338, inSameDayAs: self.currentDay)
+//            }
+            let filtered = self.allTasks.filter{
+                return calendar.isDate($0.dateCreated ?? self.currentDay, inSameDayAs: self.currentDay)
+            }
+            DispatchQueue.main.async {
+                withAnimation{
+                    self.filterTasks = filtered
+                }
+            }
+        }
     }
     // filter today Expense
     func filterTodayExpenses(){
@@ -51,6 +145,7 @@ class ExpenseViewModel: ObservableObject{
         }
     }
     func fetchCurrenWeek(){
+        
         let today = Date()
         let calendar = Calendar.current
         

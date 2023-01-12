@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D6C320629701657005C80B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D6C320829701657005C80B1 /* Localizable.strings */; };
 		4D7D04D5296BFBB400F01C31 /* riyalatyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04D4296BFBB400F01C31 /* riyalatyApp.swift */; };
 		4D7D04D7296BFBB400F01C31 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D04D6296BFBB400F01C31 /* ContentView.swift */; };
 		4D7D04DC296BFBB500F01C31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D7D04DB296BFBB500F01C31 /* Preview Assets.xcassets */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D6C320529701611005C80B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4D6C32092970165F005C80B1 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4D7D04D1296BFBB400F01C31 /* riyalaty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = riyalaty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7D04D4296BFBB400F01C31 /* riyalatyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riyalatyApp.swift; sourceTree = "<group>"; };
 		4D7D04D6296BFBB400F01C31 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		4D7D04D3296BFBB400F01C31 /* riyalaty */ = {
 			isa = PBXGroup;
 			children = (
+				4D6C320529701611005C80B1 /* Info.plist */,
 				4D7D04ED296C110200F01C31 /* ViewModel */,
 				4D7D04EA296C0E8500F01C31 /* View */,
 				4D7D04E9296C0E6500F01C31 /* Model */,
@@ -129,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				4D7D04EE296C113600F01C31 /* ExpenseViewModel.swift */,
+				4D6C320829701657005C80B1 /* Localizable.strings */,
 				4D7D04F2296D3F5000F01C31 /* MyPlayground.playground */,
 				4D7D04F7296EA2A000F01C31 /* ChartDataContainer.swift */,
 			);
@@ -185,6 +190,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 4D7D04C8296BFBB400F01C31;
 			productRefGroup = 4D7D04D2296BFBB400F01C31 /* Products */;
@@ -202,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D7D0500296EF7A400F01C31 /* Assets.xcassets in Resources */,
+				4D6C320629701657005C80B1 /* Localizable.strings in Resources */,
 				4D7D04DC296BFBB500F01C31 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +240,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4D6C320829701657005C80B1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D6C32092970165F005C80B1 /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4D7D04E2296BFBB500F01C31 /* Debug */ = {
@@ -360,6 +378,7 @@
 				DEVELOPMENT_TEAM = F3J9926XAP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = riyalaty/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -389,6 +408,7 @@
 				DEVELOPMENT_TEAM = F3J9926XAP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = riyalaty/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
