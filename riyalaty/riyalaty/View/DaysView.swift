@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+public var total : Float = 0
+
 struct DaysView: View {
     //for update cordata
     @State var showSheetView = false
@@ -105,45 +107,48 @@ struct DaysView: View {
                                             .frame(width: 8,height: 8)
                                             .opacity(expenseModel.isToday(date: day) ? 1: 0)
                                     }                                            .accessibilityLabel("Choose a day")
-
+                                    
                                     // foreground style
-                                    .foregroundStyle(expenseModel.isToday(date: day) ? .primary : .tertiary)
-                                    .foregroundColor(expenseModel.isToday(date: day) ? .white : .black)
+                                        .foregroundStyle(expenseModel.isToday(date: day) ? .primary : .tertiary)
+                                        .foregroundColor(expenseModel.isToday(date: day) ? .black : .black)
                                     //capsule shape
-                                    .frame(width: 45,height: 90)
-                                    .background(
-                                        ZStack{
-                                            // matched geometry effect
-                                            if expenseModel.isToday(date: day){
-                                                Capsule()
-                                                    .fill(.black)
-                                                    .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
+                                        .frame(width: 45,height: 90)
+                                        .background(
+                                            ZStack{
+                                                // matched geometry effect
+                                                if expenseModel.isToday(date: day){
+                                                    Capsule()
+                                                        .fill(.white)
+                                                        .shadow(color:Color.black ,radius: 3 , x: 0.0 , y: 1.5)
+                                                        
+                                                        .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
+                                                }
+                                            }
+                                        ).padding(.top, 3)
+                                        .padding(.bottom, 3)
+                                        .contentShape(Capsule())
+                                        .onTapGesture {
+                                            //updating currentday
+                                            withAnimation{
+                                                expenseModel.currentDay = day
                                             }
                                         }
-                                    )
-                                    .contentShape(Capsule())
-                                    .onTapGesture {
-                                        //updating currentday
-                                        withAnimation{
-                                            expenseModel.currentDay = day
-                                        }
-                                    }
                                     
                                 }
                             }
                             .padding(.horizontal)
                         }
                     }
-//                header: {
-//                        HeaderView()
-//                    }
+                    //                header: {
+                    //                        HeaderView()
+                    //                    }
                 }
                 VStack{
                     Text("Total Expense")
-                    //Text("500 SR")
-                    SomeView()
+                    Text(String(format: "%.2f SR", total))
+                    //SomeView()
                 }
-
+                
                 .font(.title).bold()
                 //testing
                 VStack{
@@ -158,138 +163,121 @@ struct DaysView: View {
                         .cornerRadius(2)
                         .shadow(color:Color.black ,radius: 3 , x: 0.0 , y: 1.5)
                         .padding(.bottom , 2)
-                    ZStack(alignment: .bottom){
-                    List {
-                        //allTasks
-                        ForEach(allTasks) { task in
-                        
-                        ExpenseCardView(expense: task)
-                                .font(.title3).bold()
-                                .foregroundColor(.black)
-                                .frame(width: 350, height: 30)
-                                .background(Color.white)
-                                .cornerRadius(5)
-                                .shadow(color:Color.white.opacity(0.2) ,radius: 2 , x: 0.0 , y: 1)
-                            
-                            //ExpenseCardView(expense: task)
-                            
-                        }.accessibilityLabel("Swip left to Delete an expense")
-                        .onDelete(perform: deleteTask)
-                        
-                    }.scrollContentBackground(.hidden)
-                    .accessibilityLabel("Expenditure List")
-
-                    .listStyle(.sidebar)
-                        .frame(width: 390, height: 230)
-                        .background(Color.white)
-                        .padding(.top ,-30)
+                    //working one ============================
+                    //                    ZStack(alignment: .bottom){
+                    //                    List {
+                    //                        //allTasks
+                    //                        ForEach(allTasks) { task in
+                    //
+                    //                        ExpenseCardView(expense: task)
+                    //                                .font(.title3).bold()
+                    //                                .foregroundColor(.black)
+                    //                                .frame(width: 350, height: 30)
+                    //                                .background(Color.white)
+                    //                                .cornerRadius(5)
+                    //                                .shadow(color:Color.white.opacity(0.2) ,radius: 2 , x: 0.0 , y: 1)
+                    //
+                    //                            //ExpenseCardView(expense: task)
+                    //
+                    // hena                       }.accessibilityLabel("Swip left to Delete an expense")
+                    //                        .onDelete(perform: deleteTask)
+                    //
+                    //                    }.scrollContentBackground(.hidden)
+                    //                    .accessibilityLabel("Expenditure List")
+                    //
+                    //                    .listStyle(.sidebar)
+                    //                        .frame(width: 390, height: 230)
+                    //                        .background(Color.white)
+                    //                        .padding(.top ,-30)
+                    //
+                    //                    }
+                    //                        .frame(width: 350, height: 180)
+                    //                      //  .background(Color.pink)
+                    //                        .cornerRadius(2)
+                    //
+                    //                        .padding(.bottom ,2)
                     
+                    //working one ============================
+                    
+                    
+                    //testing one ========================
+                    
+                    ZStack(alignment: .bottom){
+                        List {
+                            // Converting object as our Task Model
+                            DynamicFilteredView( dateToFilter: expenseModel.currentDay){ (object: Task) in
+                                ExpenseCardView(expense: object)
+                            }
+                            
+                                                }
+                        
+                        .scrollContentBackground(.hidden)
+                            .accessibilityLabel("Expenditure List")
+                        
+                            .listStyle(.sidebar)
+                            .frame(width: 390, height: 230)
+                            .background(Color.white)
+                            .padding(.top ,-30)
+                        
                     }
-                        .frame(width: 350, height: 180)
-                      //  .background(Color.pink)
-                        .cornerRadius(2)
-                       
-                        .padding(.bottom ,2)
-//                    ScrollView{
-//                        VStack(){
-//                            // was feltered expense
-//                                                        if let expenses = expenseModel.filterTasks{
-//                                if expenses.isEmpty{
-////                                    Text("No expences done yet!!!")
-////                                        .foregroundColor(.white)
-////                                        .font(.system(size: 16))
-////                                        .fontWeight(.light)
-////                                        .offset(y:100)
-////                                        .padding(.top,-30)
-//                                    
-//                                    
-//                                    List {
-//                                        ForEach(allTasks) { task in
-//                                            
-//                                            ExpenseCardView(expense: task)
-//                                            
-//                                        }.onDelete(perform: deleteTask)
-//                                    }.listStyle(.sidebar)
-////                                    ForEach(allTasks) {
-////                                        tasck in
-////
-////                                        Text(tasck.priority ?? "default valee" )
-////                                            .foregroundColor(Color.white)
-////                                        Text(tasck.title ?? "default valee")
-////                                            .foregroundColor(Color.white)
-////
-////                                    }
-//                                }
-//                                else{
-//                                    List {
-//
-//                                    ForEach(allTasks) { task in
-//                                       
-//                                        ExpenseCardView(expense: task)
-//                                    }.onDelete(perform: deleteTask)
-//                                }.listStyle(.sidebar)
-////                                    ForEach(expenses) { expense in
-////                                        ExpenseCardView(expense: expense)
-////                                    }
-//                                }
-//                            }
-//                            else{
-//                                // progress View
-//                                ProgressView()
-//                                    .offset(y: 100)
-//                            }
-//                        }
-//                        // updating Expenses ******** there is current month
-//                        .onChange(of: expenseModel.currentDay){ newValue in
-//                            expenseModel.filterTodayTasks()
-//                        }
-//                    }
-//                    .padding(.bottom)
-                }
-                .frame(width: 350, height: 230)
-                .background(Color.white)
-                .cornerRadius(20)
-                .shadow(color:Color.black.opacity(0.3) ,radius: 20 , x: 0.0 , y: 10)
-                .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
+                    .frame(width: 350, height: 180)
+                     
+                    .cornerRadius(2)
+                    
+                    .padding(.bottom ,2)
+                    
+                    // updating Expenses ******** there is current month
+             
                 
-                VStack{
-                    HStack{
-                        Text("Expenses  Chart:")
-                            .padding(.leading)
-                        Spacer()
-                    }.font(.title2).bold()
-                        .foregroundColor(.black)
-                        .frame(width: 350, height: 40)
-                        .background(Color.white)
-                        .cornerRadius(2)
-                        .shadow(color:Color.black ,radius: 3 , x: 0.0 , y: 1.5)
-                        .padding(.bottom , 2)
-                    ScrollView{
-                        LazyVStack{
-                            
+                
+                //testing one ========================
+            }
+            .frame(width: 350, height: 230)
+            .background(Color.white)
+            .cornerRadius(20)
+            .shadow(color:Color.black.opacity(0.3) ,radius: 20 , x: 0.0 , y: 10)
+            .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
+            
+            VStack{
+                HStack{
+                    Text("Expenses  Chart:")
+                        .padding(.leading)
+                    Spacer()
+                }.font(.title2).bold()
+                    .foregroundColor(.black)
+                    .frame(width: 350, height: 40)
+                    .background(Color.white)
+                    .cornerRadius(2)
+                    .shadow(color:Color.black ,radius: 3 , x: 0.0 , y: 1.5)
+                    .padding(.bottom , 2)
+                ScrollView{
+                    LazyVStack{
                             PieChartSimple()
-                            
-                            
-                        }}.accessibilityLabel("your expenses chart")
-                }
-                .frame(width: 350, height: 230)
-                .background(Color.white)
-                .cornerRadius(20)
-                .shadow(color:Color.black.opacity(0.3) ,radius: 20 , x: 0.0 , y: 10)
-                .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
-                .padding(.top)
-                NavigationLink {
-                    testUIView()
-                } label: {
-                    Label("View Monthly Report", systemImage: "folder")
-                        .frame(width: 200, height: 30)
-                        .foregroundColor(.white)
-                        .background(Color.black)
-                        .cornerRadius(20)
-                        .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
-                        .padding(.trailing, -100)
-                }
-                
+                        
+                        
+                        
+                        
+                    }}.accessibilityLabel("your expenses chart")
+            }
+            .frame(width: 350, height: 230)
+            .background(Color.white)
+            .cornerRadius(20)
+            .shadow(color:Color.black.opacity(0.3) ,radius: 20 , x: 0.0 , y: 10)
+            .shadow(color:Color.black.opacity(0.2) ,radius: 5 , x: 0.0 , y: 2)
+            .padding(.top)
+            NavigationLink {
+                testUIView()
+            } label: {
+                Label("View Monthly Report", systemImage: "")
+                    .frame(width: 180, height: 30)
+                    .font(.caption)
+                    .foregroundColor(.black)
+                    .background(Color.white)
+                    .cornerRadius(20)
+                    .shadow(color:Color.black.opacity(0.2) ,radius: 8 , x: 0.0 , y: 4)
+                    .padding(.trailing, -100)
+            }
+        
             }
             .navigationTitle("My Expenses")
             .navigationBarTitleDisplayMode(.inline)
@@ -310,55 +298,59 @@ struct DaysView: View {
 
         }
     }
+}
     // Header
     //was Expense
-    func colculateTotal(expenses: [Task])->Float{
-        var total : Float = 0
-       
-        for expense in expenses {
-            print(expense.title ?? "expense.title")
-            total += Float(expense.title ?? "10") ?? 17.00
-            print("Total  \(total)")
-        }
-        print("expenses  \(expenses)")
-        print("Total  \(total)")
-        return total
-    }
-     func SomeView()->some View{
-       
-        VStack{//was felterdexpense
-            if let expenses = expenseModel.filterExpenses{
-                
-                if expenses.isEmpty{
-                    Text(String(format: "%.2f SR", 0))
-                    Text(String(format: "%.2f SR", colculateTotal(expenses: allTasks.sorted(by: { $0.isInserted == $1.isInserted }).self.first)))
-//                    Text(String(format: "%.2f SR", colculateTotal(expenses: allTasks.first()!.dateCreated)))
-                }
-                else{
-                    
-                    //Text(String(format: "%.2f SR", colculateTotal(expenses: expenses)))
-                }
-            }
-            else{
-                // progress View
-                ProgressView()
-                    .offset(y: 100)
-            }
-        }
-        // updating Expenses ******** there is current month
-        .onChange(of: expenseModel.currentDay){ newValue in
-            expenseModel.filterTodayTasks()
-        }
-    }
-    func ExpenseCardView(expense: Task)->some View{
+
+//     func SomeView()->some View{
+//
+//        VStack{//was felterdexpense
+//
+//            if let expenses = expenseModel.filterExpenses{
+//
+//                if expenses.isEmpty{
+//                    Text(String(format: "%.2f SR", 0))
+//
+//                    Text(String(format: "%.2f SR", colculateTotal(expenses: allTasks.sorted(by: { $0.isInserted == $1.isInserted }))))
+////                    Text(String(format: "%.2f SR", colculateTotal(expenses: allTasks.first()!.dateCreated)))
+//                }
+//                else{
+//
+//                    Text(String(format: "%.2f SR", colculateTotal(expenses: expenses)))
+//                }
+//            }
+//            else{
+//                // progress View
+//                ProgressView()
+//                    .offset(y: 100)
+//            }
+//        }
+//        // updating Expenses ******** there is current month
+//
+//    }
+    private let itemFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .medium
+        return formatter
+        //            Text("formatter \(expense.dateCreated! , formatter: itemFormatter)")
+    }()
+func ExpenseCardView(expense: Task)->some View{
+    
+        //Since CoreData Values will Give Optinal data
         HStack{
             Text(expense.priority ?? "expense.priority")
+            
             Spacer()
+            //            Text(("\(expense.dateCreated)" ?? "expense.title") + " SR" )
             Text((expense.title ?? "expense.title") + " SR" )
-           // Text(String(format: "%.2f SR", expense.expenseAmount))
+            
+            
         }
+        .font(.title3).bold()
         .padding()
     }
+
 //    func HeaderView()->some View{
 //        HStack(spacing: 0){
 //            VStack(alignment: .leading, spacing: 0){
@@ -379,7 +371,7 @@ struct DaysView: View {
 //        .padding()
 //        .background(Color.white)
 //    }
-}
+//}
 
 struct DaysView_Previews: PreviewProvider {
     static var previews: some View {

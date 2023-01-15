@@ -103,47 +103,9 @@ class ExpenseViewModel: ObservableObject{
     // intializing
     init(){
         fetchCurrenWeek()
-        filterTodayExpenses()
-       // filterTodayTasks()
-      //  fetchCurrenMonth()
-        print("dateCreated:    :> ")
-       
 
     }
-    //fllter today expense up call task TT
-    func filterTodayTasks(){
-        DispatchQueue.global(qos: .userInteractive).async{
-            let calendar = Calendar.current
-            
-//            let filtered = self.allTasks.filter{
-//              //  return calendar.isDate($0.dateCreated ?? $01673256338, inSameDayAs: self.currentDay)
-//            }
-            let filtered = self.allTasks.filter{
-                return calendar.isDate($0.dateCreated ?? self.currentDay, inSameDayAs: self.currentDay)
-            }
-            DispatchQueue.main.async {
-                withAnimation{
-                    self.filterTasks = filtered
-                }
-            }
-        }
-    }
-    // filter today Expense
-    func filterTodayExpenses(){
-        DispatchQueue.global(qos: .userInteractive).async{
-            let calendar = Calendar.current
-            
-            let filtered = self.storedExpense.filter{
-                return calendar.isDate($0.expenseDate, inSameDayAs: self.currentDay)
-            }
-            
-            DispatchQueue.main.async {
-                withAnimation{
-                    self.filterExpenses = filtered
-                }
-            }
-        }
-    }
+
     func fetchCurrenWeek(){
         
         let today = Date()
@@ -157,7 +119,7 @@ class ExpenseViewModel: ObservableObject{
         guard let firstWeekDay = week?.start else{
             return
         }
-        (1...7).forEach{ day in
+        (-1...5).forEach{ day in
             if let weekday = calendar.date(byAdding: .day , value: day, to: firstWeekDay){
                 curreWeek.append(weekday)
             }

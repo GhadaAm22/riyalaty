@@ -87,9 +87,9 @@ struct testUIView: View {
                     .padding(.bottom , 2)
                 ScrollView{
                     LazyVStack{
-                        
-                        PieChartSimple()
-                        
+                        if (thisMonth == "Jan") {
+                            PieChartSimple()
+                        }
                         
                     }}
             }
