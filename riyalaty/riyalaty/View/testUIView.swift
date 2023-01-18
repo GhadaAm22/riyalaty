@@ -10,7 +10,12 @@ import SwiftUI
 struct testUIView: View {
     @State var Months = ["Jan", "Feb", "Mar","Apr", "May", "Jun","Jul","Aug","Sep" ,"Oct","Nov","Dec"]
     @State var thisMonth = "Jan"
-    var body: some View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(key: "dateCreated", ascending: false)])
+      private var allTasks2: FetchedResults<Task>
+
+    @StateObject var expenseModel: ExpenseViewModel = ExpenseViewModel()
+        var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             // lazy stack with pinned Header
             LazyVStack(spacing: 15, pinnedViews: [.sectionHeaders] ){
@@ -20,9 +25,7 @@ struct testUIView: View {
                         HStack(spacing: 10){
                             ForEach(Months, id: \.self){month in
                                 VStack(spacing: 10){
-//                                    Text(expenseModel.extractDate(date: day, format: "dd"))
-//                                        .font(.system(size: 15))
-//                                        .fontWeight(.semibold)
+
                                     
                                     Text(month)
                                         .font(.system(size: 14))
@@ -70,7 +73,7 @@ struct testUIView: View {
             }
             VStack{
                 Text("Total Expanse")
-                Text("500 SR")
+                TotalView()
             }
             .font(.title).bold()
             VStack{
@@ -128,6 +131,30 @@ struct testUIView: View {
         .padding()
         .background(Color.white)
     }
+    
+    func TotalView()->some View{
+
+       VStack{//was felterdexpense
+
+           if let expenses = expenseModel.allTasks{
+
+               if expenses.isEmpty{
+                   Text(String(format: "%.2f SR", 0))
+
+                   
+//                    Text(String(format: "%.2f SR", colculateTotal(expenses: allTasks.first()!.dateCreated)))
+               }
+               else{
+
+                   Text(String(format: "%.2f SR", colculateTotal(expenses: expenses.sorted(by: { $0.isInserted == $1.isInserted }))))
+               }
+           }
+           else{
+               // progress View
+               ProgressView()
+                   .offset(y: 100)
+           }
+       }
 }
     struct testUIView_Previews: PreviewProvider {
         static var previews: some View {
