@@ -13,4 +13,4 @@ A spend tracker for individual who want to  track their expenses so that help
 # Demo
 
 # Challenge Summary
-<img width="956" alt="‏لقطة الشاشة ١٤٤٤-٠٦-١٩ في ١١ ٥٦ ٥٣ ص" src="https://user-images.githubusercontent.com/116795488/212494576-56994574-289a-42b3-b81e-2b59c20d73a2.png">
+<img width="957" alt="‏لقطة الشاشة ١٤٤٤-٠٦-٢٢ في ٣ ٣٦ ٥٣ ص" src="https://user-images.githubusercontent.com/116795488/212503239-e57bddfa-656e-46de-869e-5046b36ecd13.png">
