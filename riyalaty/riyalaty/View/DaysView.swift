@@ -301,7 +301,7 @@ struct DaysView: View {
 }
     // Header
     //was Expense
-
+//
 //     func SomeView()->some View{
 //
 //        VStack{//was felterdexpense
